@@ -1,0 +1,45 @@
+body {
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.content {
+    text-align: center;
+}
+
+#quote {
+    margin-bottom: 30px;
+}
+
+#quote-text {
+    font-size: 24px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+}
+
+input[type="text"] {
+    font-size: 20px;
+    padding: 10px;
+}
+
+input[type="submit"] {
+    font-size: 16px;
+    padding: 10px 20px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #333;
+}
+
