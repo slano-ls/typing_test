@@ -1,15 +1,23 @@
-document.addEventListener('DOMContentLoaded', function () {
-    let quoteText = document.getElementById('quote-text');
-    let typedText = '';
+document.addEventListener('DOMContentLoaded', function() {
+  const quoteElement = document.querySelector('#quote');
+  const typedElement = document.querySelector('.typed');
+  const remainingElement = document.querySelector('.remaining');
+  const textInput = document.querySelector('#text-input');
 
-    quoteText.addEventListener('input', function (event) {
-        typedText = event.target.innerText;
-    });
+  textInput.addEventListener('input', function() {
+    const typedText = textInput.value;
+    const quoteText = quoteElement.textContent;
 
-    document.querySelector('form').addEventListener('submit', function (event) {
-        event.preventDefault();
-        // Perform typing speed and accuracy calculations
-        // Send results to the server (optional)
-    });
+    if (quoteText.startsWith(typedText)) {
+      typedElement.textContent = typedText;
+      remainingElement.textContent = quoteText.substring(typedText.length);
+      typedElement.classList.remove('incorrect');
+      remainingElement.classList.remove('incorrect');
+    } else {
+      typedElement.textContent = quoteText.substring(0, typedText.length);
+      remainingElement.textContent = quoteText.substring(typedText.length);
+      typedElement.classList.add('incorrect');
+      remainingElement.classList.add('incorrect');
+    }
+  });
 });
-

@@ -2,20 +2,41 @@
 <html>
 <head>
     <title>Typing Test</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        #quote {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #typing-input {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <div class="content">
-            <div id="quote">
-                <h1 id="quote-text">{{ quote }}</h1>
-            </div>
-            <form action="/results" method="POST">
-                <input type="submit" value="Submit">
-            </form>
-        </div>
+    <h1>Typing Test</h1>
+    <div id="quote">
+        <p>{{ quote }}</p>
     </div>
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+    <form id="typing-form" action="/results" method="post">
+        <input id="typing-input" type="text" name="typedText" placeholder="Type the quote here" required>
+        <input type="submit" value="Submit">
+    </form>
 </body>
 </html>
-
